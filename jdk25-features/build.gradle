@@ -1,0 +1,32 @@
+plugins {
+	id 'java'
+}
+
+group = 'np.com.nalin'
+version = '0.0.1-SNAPSHOT'
+description = 'JDK 25 module to test new features'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(25)
+	}
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
