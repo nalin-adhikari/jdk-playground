@@ -2,49 +2,69 @@ package np.com.nalin.PatternMatchingSwitch;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class VehicleServiceTest {
+@DisplayName("Vehicle Service Tests")
+class VehicleServiceTest {
     
+    private Vehicle largeCar;
+    private Vehicle standardCar;
+    private Vehicle heavyTruck;
+    private Vehicle lightTruck;
+    private Vehicle rentedScooter;
+    private Vehicle availableScooter;
+
+    @BeforeEach
+    void setUp() {
+        largeCar = new Car("Toyota", 7);
+        standardCar = new Car("Mazda", 4);
+        heavyTruck = new Truck("Volvo", 8000);
+        lightTruck = new Truck("Isuzu", 3000);
+        rentedScooter = new ElectricScooter("Segway", true);
+        availableScooter = new ElectricScooter("Xiaomi", false);
+    }
+
     @Test
+    @DisplayName("Should correctly describe a large car")
     void testLargeCar() {
-        Vehicle car = new Car("Toyota", 7);
-        String result = VehicleService.describeVehicle(car);
+        String result = VehicleService.describeVehicle(largeCar);
         assertEquals("Large car: Toyota with 7 seats", result);
     }
 
     @Test
+    @DisplayName("Should correctly describe a standard car")
     void testStandardCar() {
-        Vehicle car = new Car("Mazda", 4);
-        String result = VehicleService.describeVehicle(car);
+        String result = VehicleService.describeVehicle(standardCar);
         assertEquals("Standard car: Mazda with 4 seats", result);
     }
 
     @Test
+    @DisplayName("Should correctly describe a heavy-duty truck")
     void testHeavyTruck() {
-        Vehicle truck = new Truck("Volvo", 8000);
-        String result = VehicleService.describeVehicle(truck);
+        String result = VehicleService.describeVehicle(heavyTruck);
         assertEquals("Heavy-duty truck: Volvo (8000.0kg capacity)", result);
     }
 
     @Test
+    @DisplayName("Should correctly describe a light truck")
     void testLightTruck() {
-        Vehicle truck = new Truck("Isuzu", 3000);
-        String result = VehicleService.describeVehicle(truck);
+        String result = VehicleService.describeVehicle(lightTruck);
         assertEquals("Light truck: Isuzu (3000.0kg capacity)", result);
     }
 
     @Test
+    @DisplayName("Should correctly describe a rented scooter")
     void testRentedScooter() {
-        Vehicle scooter = new ElectricScooter("Segway", true);
-        String result = VehicleService.describeVehicle(scooter);
+        String result = VehicleService.describeVehicle(rentedScooter);
         assertEquals("Rented scooter: Segway", result);
     }
 
     @Test
+    @DisplayName("Should correctly describe an available scooter")
     void testAvailableScooter() {
-        Vehicle scooter = new ElectricScooter("Xiaomi", false);
-        String result = VehicleService.describeVehicle(scooter);
+        String result = VehicleService.describeVehicle(availableScooter);
         assertEquals("Available scooter: Xiaomi", result);
     }
 }
