@@ -1,3 +1,3 @@
 rootProject.name = 'jdk-playground'
 
-include("jdk25-features")
+include("jdk21-features")

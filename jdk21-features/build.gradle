@@ -1,14 +1,29 @@
 plugins {
 	id 'java'
+	id 'application'
 }
 
 group = 'np.com.nalin'
+application {
+    mainClass = 'np.com.nalin.Application'
+}
 version = '0.0.1-SNAPSHOT'
-description = 'JDK 25 module to test new features'
+base.archivesName = 'jdk21-features'
+description = 'JDK 21 module to test new features'
 
 java {
 	toolchain {
-		languageVersion = JavaLanguageVersion.of(25)
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+	sourceSets {
+		main {
+			java {
+				srcDirs = ['src/main/java']
+			}
+			resources {
+				srcDirs = ['src/main/resources']
+			}
+		}
 	}
 }
 

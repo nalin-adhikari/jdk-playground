@@ -1,8 +1,8 @@
-package main.java.np.com.nalin;
+package np.com.nalin;
 
 public class Application {
     public static void main(String[] args) {
         // Initialize the application
-        System.out.println("JDK 25 Features Application Started");
+        System.out.println("JDK 21 Features Application Started");
     }
 }
