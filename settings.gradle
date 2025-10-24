@@ -1,3 +1,4 @@
 rootProject.name = 'jdk-playground'
 
 include("jdk21-features")
+include("design-patterns")
